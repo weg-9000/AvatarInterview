@@ -25,16 +25,17 @@ else: -  OpenAI API KEY
 ### 환경 변수 설정
 
 `.env` 파일을 생성하고 다음과 같이 설정합니다:
-# Azure Cosmos DB
+```
+Azure Cosmos DB
 COSMOS_DB_ENDPOINT=
 COSMOS_DB_KEY=
 COSMOS_DB_DATABASE=
 
-# Azure Document Intelligence
+Azure Document Intelligence
 DOCUMENT_INTELLIGENCE_ENDPOINT=
 DOCUMENT_INTELLIGENCE_KEY=
 
-# Azure OpenAI
+Azure OpenAI
 PERPLEXITY_ENDPOINT=
 PERPLEXITY_API_KEY=
 PERPLEXITY_DEPLOYMENT=
@@ -43,7 +44,7 @@ PERPLEXITY_DEPLOYMENT=
 # Azure Speech Service
 SPEECH_SERVICE_ENDPOINT=
 SPEECH_SERVICE_KEY=
-
+```
 
 # 구조
 ```
