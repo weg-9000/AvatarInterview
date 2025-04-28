@@ -4,7 +4,6 @@
 
 ## 기능
 
-- 이력서 분석 (Azure Document Intelligence)
 - 회사 인재상 및 직무 정보 검색
 - 맞춤형 면접 질문 생성
 - 음성 인식 및 합성 (Azure Speech Service)
@@ -18,9 +17,10 @@
 - Python 3.8 이상
 - Azure 계정 및 필요한 서비스 설정
   - Azure Cosmos DB
-  - Azure Document Intelligence
-  - Azure OpenAI
+  - Azure OpenAI 
   - Azure Speech Service
+    
+else: -  OpenAI API KEY
 
 ### 환경 변수 설정
 
