@@ -25,3 +25,81 @@ else: -  OpenAI API KEY
 ### 환경 변수 설정
 
 `.env` 파일을 생성하고 다음과 같이 설정합니다:
+# Azure Cosmos DB
+COSMOS_DB_ENDPOINT=
+COSMOS_DB_KEY=
+COSMOS_DB_DATABASE=
+
+# Azure Document Intelligence
+DOCUMENT_INTELLIGENCE_ENDPOINT=
+DOCUMENT_INTELLIGENCE_KEY=
+
+# Azure OpenAI
+PERPLEXITY_ENDPOINT=
+PERPLEXITY_API_KEY=
+PERPLEXITY_DEPLOYMENT=
+
+
+# Azure Speech Service
+SPEECH_SERVICE_ENDPOINT=
+SPEECH_SERVICE_KEY=
+
+
+# 구조
+```
+├── backend/
+│   ├── app/
+│   │   ├── agents/
+│   │   │   ├── __init__.py
+│   │   │   ├── company_research_agent.py
+│   │   │   ├── interview_question_agent.py
+│   │   │   └── evaluation_agent.py
+│   │   ├── api/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── users.py
+│   │   │   │   ├── resumes.py
+│   │   │   │   ├── interviews.py
+│   │   │   │   └── evaluations.py
+│   │   │   ├── dependencies.py
+│   │   │   └── middleware.py
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py
+│   │   │   ├── security.py
+│   │   │   └── exceptions.py
+│   │   ├── db/
+│   │   │   ├── __init__.py
+│   │   │   ├── cosmos_client.py
+│   │   │   └── repositories/
+│   │   │       ├── __init__.py
+│   │   │       ├── user_repository.py
+│   │   │       ├── resume_repository.py
+│   │   │       ├── talent_repository.py
+│   │   │       ├── question_repository.py
+│   │   │       ├── response_repository.py
+│   │   │       └── evaluation_repository.py
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   ├── user.py
+│   │   │   ├── resume.py
+│   │   │   ├── talent.py
+│   │   │   ├── question.py
+│   │   │   ├── response.py
+│   │   │   └── evaluation.py
+│   │   ├── services/
+│   │   │   ├── __init__.py
+│   │   │   └── resume_processor.py
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   └── helpers.py
+│   │   └── main.py
+│   ├── requirements.txt
+│   ├── alembic.ini
+│   └── README.md
+
+```
+
+
+
