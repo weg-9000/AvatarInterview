@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-dotenv
+azure-cosmos
+semantic-kernel
+azure-ai-formrecognizer
+azure-cognitiveservices-speech
+python-multipart
+pydantic
+httpx
+asyncio
+pydantic-settings

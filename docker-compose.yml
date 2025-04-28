@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: interview-assistant-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - COSMOS_DB_ENDPOINT=${COSMOS_DB_ENDPOINT}
+      - COSMOS_DB_KEY=${COSMOS_DB_KEY}
+      - COSMOS_DB_DATABASE=${COSMOS_DB_DATABASE}
+      - DOCUMENT_INTELLIGENCE_ENDPOINT=${DOCUMENT_INTELLIGENCE_ENDPOINT}
+      - DOCUMENT_INTELLIGENCE_KEY=${DOCUMENT_INTELLIGENCE_KEY}
+      - PERPLEXITY_ENDPOINT=${PERPLEXITY_ENDPOINT}
+      - PERPLEXITY_API_KEY=${PERPLEXITY_API_KEY}
+      - PERPLEXITY_DEPLOYMENT=${PERPLEXITY_DEPLOYMENT}
+      - SPEECH_SERVICE_ENDPOINT=${SPEECH_SERVICE_ENDPOINT}
+      - SPEECH_SERVICE_KEY=${SPEECH_SERVICE_KEY}
+    volumes:
+      - ./backend:/app
+    networks:
+      - interview-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: interview-assistant-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - interview-network
+
+networks:
+  interview-network:
+    driver: bridge
