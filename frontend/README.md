@@ -19,3 +19,57 @@
 ### 환경 변수 설정
 
 `.env` 파일을 생성하고 다음과 같이 설정합니다:
+```
+REACT_APP_API_URL=http://localhost:8000
+REACT_APP_SPEECH_KEY=
+REACT_APP_SPEECH_REGION=
+```
+
+# 구조
+```
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── assets/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Avatar/
+│   │   │   │   └── AvatarComponent.js
+│   │   │   ├── Interview/
+│   │   │   │   ├── InterviewQuestions.js
+│   │   │   │   ├── ResponseRecorder.js
+│   │   │   │   └── Timer.js
+│   │   │   ├── Resume/
+│   │   │   │   ├── ResumeUploader.js
+│   │   │   │   └── ResumeAnalysis.js
+│   │   │   ├── Results/
+│   │   │   │   ├── EvaluationSummary.js
+│   │   │   │   └── ImprovementSuggestions.js
+│   │   │   └── common/
+│   │   │       ├── Header.js
+│   │   │       ├── Footer.js
+│   │   │       └── LoadingIndicator.js
+│   │   ├── contexts/
+│   │   │   ├── AuthContext.js
+│   │   │   └── InterviewContext.js
+│   │   ├── hooks/
+│   │   │   ├── useSpeechRecognition.js
+│   │   │   └── useTimer.js
+│   │   ├── pages/
+│   │   │   ├── HomePage.js
+│   │   │   ├── ProfilePage.js
+│   │   │   ├── InterviewPage.js
+│   │   │   └── ResultsPage.js
+│   │   ├── services/
+│   │   │   ├── api.js
+│   │   │   └── speechService.js
+│   │   ├── utils/
+│   │   │   ├── formatters.js
+│   │   │   └── validators.j
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── styles.css
+│   ├── package.json
+│   └── README.md
+
+```
