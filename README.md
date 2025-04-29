@@ -1,4 +1,7 @@
 # 아바타 면접 도우미
+<p align="center">
+  <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153209.png" alt="Example Image">
+</p>
 
 Azure 서비스와 Semantic Kernel을 활용한 다중 에이전트 시스템으로 구현된 면접 준비 애플리케이션입니다.
 
