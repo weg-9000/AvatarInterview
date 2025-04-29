@@ -151,7 +151,18 @@ const AvatarComponent = ({ question, onQuestionComplete }) => {
       // SSML 생성
       const ssml = `
         <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ko-KR">
-          <voice name="ko-KR-SunHiNeural">${text}</voice>
+          <voice name="ko-KR-SunHiNeural">
+            ${text
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&apos;")
+              .replace(
+                /\*\*([^*]+)\*\*/g,
+                '<emphasis level="strong">$1</emphasis>'
+              )}
+            </voice> 
         </speak>
       `;
       const result = await avatarSynthesizerRef.current.speakSsmlAsync(ssml);
