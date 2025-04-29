@@ -18,6 +18,10 @@ Azure 서비스와 Semantic Kernel을 활용한 다중 에이전트 시스템으
 - **음성 인식**: 사용자의 응답을 실시간으로 텍스트로 변환
 - **면접 평가**: 응답 내용을 분석하여 종합적인 평가와 개선 제안 제공
 
+<p align="center">
+  <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153824.png" alt="Example Image">
+</p>
+
 ## 기술 스택
 
 ### 백엔드
