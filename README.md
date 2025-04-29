@@ -8,7 +8,7 @@ Azure 서비스와 Semantic Kernel을 활용한 다중 에이전트 시스템으
 
 ## 주요 기능
 
-- **이력서 분석**: Azure Document Intelligence를 사용하여 이력서를 자동으로 분석
+- **이력서 입력**:  사용저가 이력서 전체를 입력
 - **회사 인재상 연구**: 지원 회사와 직무에 맞는 인재상 및 면접 정보 검색
 - **맞춤형 면접 질문**: 이력서와 회사 인재상을 바탕으로 개인화된 면접 질문 생성
 - **아바타 면접관**: Azure AI Avatar를 사용한 실제 면접관과 같은 경험 제공
@@ -21,8 +21,7 @@ Azure 서비스와 Semantic Kernel을 활용한 다중 에이전트 시스템으
 
 - FastAPI
 - Azure Cosmos DB
-- Azure Document Intelligence
-- Azure OpenAI
+- OpenAI API KEY
 - Azure Speech Service
 - Semantic Kernel
 
@@ -40,3 +39,17 @@ Azure 서비스와 Semantic Kernel을 활용한 다중 에이전트 시스템으
 - Python 3.8 이상
 - Node.js 14 이상
 - Azure 계정 및 필요한 서비스 설정
+- OpenAI 관련 서비스 구독 후 API KEY 생성 (해당 프로젝트는 Perplexity 사용)
+
+
+
+
+```
+interview-assistant/
+├── frontend/
+├── backend/
+├── .env
+├── .gitignore
+├── Docker-compose.yml
+└── README.md
+```
