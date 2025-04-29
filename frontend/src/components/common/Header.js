@@ -16,7 +16,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              href="https://github.com/your-username/interview-assistant"
+              href="https://github.com/weg-9000/AvatarInterview"
               target="_blank"
               rel="noopener noreferrer"
             >
