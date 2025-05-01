@@ -1,62 +1,144 @@
-# 아바타 면접 도우미
-<p align="center">
-  <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153209.png" alt="Example Image">
-</p>
+Avatar Interview Assistant
+<p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153209.png" alt="Interview Assistant Interface"> </p>
+An interview preparation application built with a multi-agent system leveraging Azure services and Semantic Kernel framework.
 
-Azure 서비스와 Semantic Kernel을 활용한 다중 에이전트 시스템으로 구현된 면접 준비 애플리케이션입니다.
+Project Overview
+This project analyzes users' resumes and researches the target company's values to generate tailored interview questions. It then simulates a realistic interview environment through an avatar interface. After the interview, the system analyzes user responses to provide comprehensive feedback and improvement suggestions.
 
-## 프로젝트 개요
+Key Features
+Resume Input: Users can input their entire resume in a seamless markdown-supported interface
 
-이 프로젝트는 사용자의 이력서를 분석하고, 지원 회사의 인재상을 파악하여 맞춤형 면접 질문을 생성하고, 아바타를 통해 실제 면접 환경을 시뮬레이션합니다. 또한 사용자의 응답을 분석하여 종합적인 평가와 개선 제안을 제공합니다.
+Company Research Agent: Automatically researches and analyzes the target company's culture, values, and interview patterns based on the position
 
-## 주요 기능
+Personalized Question Generator: Creates customized interview questions by combining resume details with company research results
 
-- **이력서 입력**:  사용저가 이력서 전체를 입력
-- **회사 인재상 연구 에이전트**: 지원 회사와 직무에 맞는 인재상 및 면접 정보 검색
-- **맞춤형 면접 질문 에이전트**: 이력서와 회사 인재상을 바탕으로 개인화된 면접 질문 생성
-- **아바타 면접관**: Azure AI Avatar를 사용한 실제 면접관과 같은 경험 제공
-- **음성 인식**: 사용자의 응답을 실시간으로 텍스트로 변환
-- **면접 평가 에이전트**: 응답 내용을 분석하여 종합적인 평가와 개선 제안 제공
+Avatar Interviewer: Delivers a realistic interview experience through Azure AI Avatar with synchronized speech and facial expressions
 
-<p align="center">
-  <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153824.png" alt="Example Image">
-</p>
+Text Input System: Allows users to type responses directly in a time-limited environment (previously supported voice recognition)
 
-## 기술 스택
+Interview Evaluation Agent: Provides detailed feedback on user responses with strengths, weaknesses, and improvement suggestions in markdown format
 
-### 백엔드
+Result Export: Enables downloading of interview results as formatted text files
 
-- FastAPI
-- Azure Cosmos DB
-- OpenAI API KEY
-- Azure Speech Service
-- Semantic Kernel
+<p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153824.png" alt="Interview Evaluation Results"> </p>
+Technology Stack
+Backend
+FastAPI: High-performance Python framework for building APIs
 
-### 프론트엔드
+Azure Cosmos DB: NoSQL database for storing user data, resumes, and interview results
 
-- React
-- React Router
-- Azure Cognitive Services Speech SDK
-- Axios
+Perplexity API: Integrated for enhanced contextual understanding and responses
 
-## 설치 및 실행
+Azure Speech Service: Powers the avatar's speech synthesis capabilities
 
-### 필수 요구사항
+Azure AI Avatar: Creates the visual interviewer with synchronized lip movements
 
-- Python 3.8 이상
-- Node.js 14 이상
-- Azure 계정 및 필요한 서비스 설정
-- OpenAI 관련 서비스 구독 후 API KEY 생성 (해당 프로젝트는 Perplexity 사용)
+Semantic Kernel: Microsoft's framework for AI orchestration and agent communication
 
+Frontend
+React: JavaScript library for building the user interface
 
+React Router: Handles navigation between different components
 
+React Markdown: Renders markdown content for resume input and evaluation results
 
-```
+Azure Cognitive Services Speech SDK: Connects to Azure services for avatar interaction
+
+Axios: Manages HTTP requests to the backend API
+
+CSS Custom Styling: Provides a modern, professional interface design
+
+Installation and Setup
+Prerequisites
+Python 3.8 or higher
+
+Node.js 14 or higher
+
+Azure account with required services configured:
+
+Azure OpenAI or Perplexity API keys
+
+Azure Cosmos DB instance
+
+Azure Speech Service subscription
+
+Azure AI Avatar service access
+
+Backend Setup
+Navigate to the backend directory:
+
+text
+cd backend
+Create and activate a virtual environment:
+
+text
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install dependencies:
+
+text
+pip install -r requirements.txt
+Configure environment variables in a .env file:
+
+text
+OPENAI_API_KEY=your_perplexity_api_key
+AZURE_COSMOS_ENDPOINT=your_cosmos_db_endpoint
+AZURE_COSMOS_KEY=your_cosmos_db_key
+AZURE_SPEECH_KEY=your_speech_key
+AZURE_SPEECH_REGION=your_speech_region
+Run the FastAPI server:
+
+text
+uvicorn main:app --reload
+Frontend Setup
+Navigate to the frontend directory:
+
+text
+cd frontend
+Install dependencies:
+
+text
+npm install
+Configure environment variables in a .env file:
+
+text
+REACT_APP_API_URL=http://localhost:8000
+REACT_APP_SPEECH_KEY=your_speech_key
+REACT_APP_SPEECH_REGION=your_speech_region
+Start the development server:
+
+text
+npm start
+Project Structure
+text
 interview-assistant/
-├── frontend/
-├── backend/
-├── .env
-├── .gitignore
-├── Docker-compose.yml
-└── README.md
-```
+├── frontend/              # React frontend application
+│   ├── src/
+│   │   ├── components/    # UI components
+│   │   ├── pages/         # Page components
+│   │   ├── services/      # API service functions
+│   │   └── styles/        # CSS styles
+│   ├── public/
+│   └── package.json
+├── backend/               # FastAPI backend application
+│   ├── app/
+│   │   ├── api/           # API endpoints
+│   │   ├── core/          # Core configurations
+│   │   ├── models/        # Data models
+│   │   ├── repositories/  # Database operations
+│   │   └── services/      # Business logic
+│   ├── main.py            # Application entry point
+│   └── requirements.txt
+├── .env                   # Environment variables
+├── .gitignore             # Git ignore file
+├── Docker-compose.yml     # Docker compose configuration
+└── README.md              # Project documentation
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+Azure Speech and AI Avatar Services for providing the core technology
+
+Semantic Kernel framework for enabling multi-agent coordination
+
+Perplexity API for enhanced contextual understanding
