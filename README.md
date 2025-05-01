@@ -1,6 +1,6 @@
 # Avatar Interview Assistant
 
-
+<p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153209.png" alt="Interview Assistant Interface"> </p>
   
 
 
@@ -21,7 +21,7 @@ This project analyzes users' resumes and researches the target company's values 
 - **Result Export**: Enables downloading of interview results as formatted text files
 
 
-  
+  <p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153824.png" alt="Interview Evaluation Results"> </p>
 
 
 ## Technology Stack
