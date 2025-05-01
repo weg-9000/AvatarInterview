@@ -41,8 +41,7 @@ This project analyzes users' resumes and researches the target company's values 
 - **React Router**: Handles navigation between different components
 - **React Markdown**: Renders markdown content for resume input and evaluation results
 - **Azure Cognitive Services Speech SDK**: Connects to Azure services for avatar interaction
-- **Axios**: Manages HTTP requests to the backend API
-- **CSS Custom Styling**: Provides a modern, professional interface design
+
 
 ## Installation and Setup
 
