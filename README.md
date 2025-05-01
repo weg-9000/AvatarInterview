@@ -1,116 +1,120 @@
-Avatar Interview Assistant
-<p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153209.png" alt="Interview Assistant Interface"> </p>
+# Avatar Interview Assistant
+
+
+  
+
+
 An interview preparation application built with a multi-agent system leveraging Azure services and Semantic Kernel framework.
 
-Project Overview
+## Project Overview
+
 This project analyzes users' resumes and researches the target company's values to generate tailored interview questions. It then simulates a realistic interview environment through an avatar interface. After the interview, the system analyzes user responses to provide comprehensive feedback and improvement suggestions.
 
-Key Features
-Resume Input: Users can input their entire resume in a seamless markdown-supported interface
+## Key Features
 
-Company Research Agent: Automatically researches and analyzes the target company's culture, values, and interview patterns based on the position
+- **Resume Input**: Users can input their entire resume in a seamless markdown-supported interface
+- **Company Research Agent**: Automatically researches and analyzes the target company's culture, values, and interview patterns based on the position
+- **Personalized Question Generator**: Creates customized interview questions by combining resume details with company research results
+- **Avatar Interviewer**: Delivers a realistic interview experience through Azure AI Avatar with synchronized speech and facial expressions
+- **Text Input System**: Allows users to type responses directly in a time-limited environment (previously supported voice recognition)
+- **Interview Evaluation Agent**: Provides detailed feedback on user responses with strengths, weaknesses, and improvement suggestions in markdown format
+- **Result Export**: Enables downloading of interview results as formatted text files
 
-Personalized Question Generator: Creates customized interview questions by combining resume details with company research results
 
-Avatar Interviewer: Delivers a realistic interview experience through Azure AI Avatar with synchronized speech and facial expressions
+  
 
-Text Input System: Allows users to type responses directly in a time-limited environment (previously supported voice recognition)
 
-Interview Evaluation Agent: Provides detailed feedback on user responses with strengths, weaknesses, and improvement suggestions in markdown format
+## Technology Stack
 
-Result Export: Enables downloading of interview results as formatted text files
+### Backend
 
-<p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153824.png" alt="Interview Evaluation Results"> </p>
-Technology Stack
-Backend
-FastAPI: High-performance Python framework for building APIs
+- **FastAPI**: High-performance Python framework for building APIs
+- **Azure Cosmos DB**: NoSQL database for storing user data, resumes, and interview results
+- **Perplexity API**: Integrated for enhanced contextual understanding and responses
+- **Azure Speech Service**: Powers the avatar's speech synthesis capabilities
+- **Azure AI Avatar**: Creates the visual interviewer with synchronized lip movements
+- **Semantic Kernel**: Microsoft's framework for AI orchestration and agent communication
 
-Azure Cosmos DB: NoSQL database for storing user data, resumes, and interview results
+### Frontend
 
-Perplexity API: Integrated for enhanced contextual understanding and responses
+- **React**: JavaScript library for building the user interface
+- **React Router**: Handles navigation between different components
+- **React Markdown**: Renders markdown content for resume input and evaluation results
+- **Azure Cognitive Services Speech SDK**: Connects to Azure services for avatar interaction
+- **Axios**: Manages HTTP requests to the backend API
+- **CSS Custom Styling**: Provides a modern, professional interface design
 
-Azure Speech Service: Powers the avatar's speech synthesis capabilities
+## Installation and Setup
 
-Azure AI Avatar: Creates the visual interviewer with synchronized lip movements
+### Prerequisites
 
-Semantic Kernel: Microsoft's framework for AI orchestration and agent communication
+- Python 3.8 or higher
+- Node.js 14 or higher
+- Azure account with required services configured:
+  - Azure OpenAI or Perplexity API keys
+  - Azure Cosmos DB instance
+  - Azure Speech Service subscription
+  - Azure AI Avatar service access
 
-Frontend
-React: JavaScript library for building the user interface
+### Backend Setup
 
-React Router: Handles navigation between different components
+1. Navigate to the backend directory:
+   ```
+   cd backend
+   ```
 
-React Markdown: Renders markdown content for resume input and evaluation results
+2. Create and activate a virtual environment:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-Azure Cognitive Services Speech SDK: Connects to Azure services for avatar interaction
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-Axios: Manages HTTP requests to the backend API
+4. Configure environment variables in a `.env` file:
+   ```
+   OPENAI_API_KEY=your_perplexity_api_key
+   AZURE_COSMOS_ENDPOINT=your_cosmos_db_endpoint
+   AZURE_COSMOS_KEY=your_cosmos_db_key
+   AZURE_SPEECH_KEY=your_speech_key
+   AZURE_SPEECH_REGION=your_speech_region
+   ```
 
-CSS Custom Styling: Provides a modern, professional interface design
+5. Run the FastAPI server:
+   ```
+   uvicorn main:app --reload
+   ```
 
-Installation and Setup
-Prerequisites
-Python 3.8 or higher
+### Frontend Setup
 
-Node.js 14 or higher
+1. Navigate to the frontend directory:
+   ```
+   cd frontend
+   ```
 
-Azure account with required services configured:
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-Azure OpenAI or Perplexity API keys
+3. Configure environment variables in a `.env` file:
+   ```
+   REACT_APP_API_URL=http://localhost:8000
+   REACT_APP_SPEECH_KEY=your_speech_key
+   REACT_APP_SPEECH_REGION=your_speech_region
+   ```
 
-Azure Cosmos DB instance
+4. Start the development server:
+   ```
+   npm start
+   ```
 
-Azure Speech Service subscription
+## Project Structure
 
-Azure AI Avatar service access
-
-Backend Setup
-Navigate to the backend directory:
-
-text
-cd backend
-Create and activate a virtual environment:
-
-text
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
-
-text
-pip install -r requirements.txt
-Configure environment variables in a .env file:
-
-text
-OPENAI_API_KEY=your_perplexity_api_key
-AZURE_COSMOS_ENDPOINT=your_cosmos_db_endpoint
-AZURE_COSMOS_KEY=your_cosmos_db_key
-AZURE_SPEECH_KEY=your_speech_key
-AZURE_SPEECH_REGION=your_speech_region
-Run the FastAPI server:
-
-text
-uvicorn main:app --reload
-Frontend Setup
-Navigate to the frontend directory:
-
-text
-cd frontend
-Install dependencies:
-
-text
-npm install
-Configure environment variables in a .env file:
-
-text
-REACT_APP_API_URL=http://localhost:8000
-REACT_APP_SPEECH_KEY=your_speech_key
-REACT_APP_SPEECH_REGION=your_speech_region
-Start the development server:
-
-text
-npm start
-Project Structure
-text
+```
 interview-assistant/
 ├── frontend/              # React frontend application
 │   ├── src/
@@ -133,12 +137,14 @@ interview-assistant/
 ├── .gitignore             # Git ignore file
 ├── Docker-compose.yml     # Docker compose configuration
 └── README.md              # Project documentation
-License
+```
+
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgments
-Azure Speech and AI Avatar Services for providing the core technology
+## Acknowledgments
 
-Semantic Kernel framework for enabling multi-agent coordination
-
-Perplexity API for enhanced contextual understanding
+- Azure Speech and AI Avatar Services for providing the core technology
+- Semantic Kernel framework for enabling multi-agent coordination
+- Perplexity API for enhanced contextual understanding
