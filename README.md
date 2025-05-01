@@ -1,4 +1,4 @@
-# Avatar Interview Assistant
+# Multi-agent AI Avatar Interview Assistant
 
 <p align="center"> <img src="https://github.com/weg-9000/image/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-29%20153209.png" alt="Interview Assistant Interface"> </p>
   
