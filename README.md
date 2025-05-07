@@ -6,6 +6,9 @@
 
 An interview preparation application built with a multi-agent system leveraging Azure services and Semantic Kernel framework.
 
+# Solution Acrhitecture
+![Solution Architecture](diagrams/solution_architecture.drawio.svg)
+
 ## Project Overview
 
 This project analyzes users' resumes and researches the target company's values to generate tailored interview questions. It then simulates a realistic interview environment through an avatar interface. After the interview, the system analyzes user responses to provide comprehensive feedback and improvement suggestions.
