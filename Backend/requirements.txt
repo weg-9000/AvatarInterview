@@ -1,12 +1,12 @@
-fastapi
-uvicorn
-python-dotenv
-azure-cosmos
-semantic-kernel
-azure-ai-formrecognizer
-azure-cognitiveservices-speech
-python-multipart
-pydantic
-httpx
-asyncio
-pydantic-settings
+fastapi: 0.115.12
+uvicorn: 0.34.2
+python-dotenv: 1.1.0
+azure-cosmos: 4.9.0
+semantic-kernel: 1.28.1
+azure-ai-formrecognizer: 3.3.3
+azure-cognitiveservices-speech: 1.43.0
+python-multipart: 0.0.20
+pydantic: 2.11.3
+httpx: 0.28.1
+asyncio: 3.4.3
+pydantic-settings: 2.9.1
