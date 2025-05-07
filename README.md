@@ -7,7 +7,7 @@
 An interview preparation application built with a multi-agent system leveraging Azure services and Semantic Kernel framework.
 
 # Solution Acrhitecture
-![Solution Architecture](https://github.com/weg-9000/Multi-agent-AI-Avatar-Interview-Assistant/blob/main/Solution_architecture.drawio.svg)
+![Solution Architecture](https://github.com/weg-9000/Multi-agent-AI-Avatar-Interview-Assistant/blob/main/Solution_architecture.drawio.png)
 
 ## Project Overview
 
