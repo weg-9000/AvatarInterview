@@ -23,7 +23,6 @@ const ResultsPage = () => {
       setEvaluation(response.data.evaluation);
       setLoading(false);
     } catch (error) {
-      console.error("평가 가져오기 오류:", error);
       setError("면접 평가를 가져오는 중 오류가 발생했습니다.");
       setLoading(false);
     }
@@ -53,31 +52,78 @@ const ResultsPage = () => {
   };
 
   if (loading) {
-    return <div className="loading">평가 결과를 불러오는 중...</div>;
+    return (
+      <div className="results-page">
+        <div
+          className="evaluation-content"
+          style={{ textAlign: "center", color: "#767676" }}
+        >
+          평가 결과를 불러오는 중입니다...
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="error-container">{error}</div>;
+    return (
+      <div className="results-page">
+        <div
+          className="evaluation-content"
+          style={{
+            color: "#fe415c",
+            background: "rgba(254,65,92,0.07)",
+            borderRadius: "6px",
+            padding: "1rem",
+            textAlign: "center",
+          }}
+        >
+          {error}
+        </div>
+      </div>
+    );
   }
 
-  // 핵심: evaluation이 string(마크다운 전체)일 경우 그대로 렌더링
+  if (!evaluation) {
+    return (
+      <div className="results-page">
+        <div
+          className="evaluation-content"
+          style={{ textAlign: "center", color: "#767676" }}
+        >
+          아직 평가 결과가 없습니다.
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="results-container">
+    <div className="results-page">
       <h1>면접 평가 결과</h1>
-      {evaluation && typeof evaluation === "string" ? (
-        <div className="markdown-content">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {evaluation}
-          </ReactMarkdown>
-        </div>
-      ) : (
-        <div className="no-evaluation">
-          <p>아직 평가 결과가 없습니다.</p>
-        </div>
-      )}
-      <div className="actions">
-        <button onClick={handleDownload}>평가 결과 다운로드</button>
-        <button onClick={handleNewInterview}>새 면접 시작하기</button>
+      <div className="results-summary">
+        <ReactMarkdown
+          className="evaluation-content"
+          remarkPlugins={[remarkGfm]}
+        >
+          {typeof evaluation === "string"
+            ? evaluation
+            : JSON.stringify(evaluation, null, 2)}
+        </ReactMarkdown>
+      </div>
+      <div className="action-buttons">
+        <button className="action-button" onClick={handleDownload}>
+          결과 다운로드
+        </button>
+        <button
+          className="action-button"
+          style={{
+            background: "#fff",
+            color: "#3366ff",
+            border: "1px solid #3366ff",
+          }}
+          onClick={handleNewInterview}
+        >
+          새 면접 시작
+        </button>
       </div>
     </div>
   );

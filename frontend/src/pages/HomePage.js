@@ -8,7 +8,7 @@ const HomePage = () => {
   const [userData, setUserData] = useState({
     name: "",
     companyName: "",
-    jobPosition: "",
+    jobPosition: "", // position에서 jobPosition으로 다시 변경
   });
   // 단일 이력서 텍스트 필드로 변경
   const [resumeContent, setResumeContent] = useState("");
@@ -38,7 +38,7 @@ const HomePage = () => {
       setUserId(response.data.userId);
       localStorage.setItem(
         "companyId",
-        userData.companyName.toLowerCase().replace(" ", "_")
+        userData.companyName.toLowerCase().replace(/\s+/g, "_")
       );
       setStep(2);
       setLoading(false);
@@ -59,18 +59,18 @@ const HomePage = () => {
         personalInfo: { name: userData.name },
         applicationInfo: {
           company: userData.companyName,
-          position: userData.jobPosition,
+          position: userData.jobPosition, // 필드명 변경
         },
         resumeContent: { resumeContent }, // 단일 필드로 전달
       });
       await api.post("/api/interviews/research", {
         userId,
         companyName: userData.companyName,
-        jobPosition: userData.jobPosition,
+        jobPosition: userData.jobPosition, // 필드명 유지
       });
       await api.post("/api/interviews/generate-questions", {
         userId,
-        companyId: userData.companyName.toLowerCase().replace(" ", "_"),
+        companyId: userData.companyName.toLowerCase().replace(/\s+/g, "_"),
       });
       navigate(`/interview/${userId}`);
       setLoading(false);

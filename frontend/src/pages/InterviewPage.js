@@ -4,16 +4,21 @@ import AvatarComponent from "components/Avatar/AvatarComponent";
 import ResponseRecorder from "components/Interview/ResponseRecorder";
 import api from "services/api";
 
+// 이미지 파일 import
+import micIcon from "assets/images/mic-icon.png";
+import textIcon from "assets/images/text-icon.png";
+
 const InterviewPage = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isQuestionPlaying, setIsQuestionPlaying] = useState(false);
-  const [isResponding, setIsResponding] = useState(false); // 변수명 변경
+  const [isResponding, setIsResponding] = useState(false);
   const [isInterviewComplete, setIsInterviewComplete] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [responseMode, setResponseMode] = useState(null); // "text" 또는 "speech"
 
   useEffect(() => {
     // 면접 질문 가져오기
@@ -26,6 +31,11 @@ const InterviewPage = () => {
       const response = await api.get(`/api/interviews/questions/${userId}`);
       setQuestions(response.data.questions);
       setLoading(false);
+
+      // 첫 번째 질문 자동 재생 (선택적)
+      if (response.data.questions.length > 0) {
+        setIsQuestionPlaying(true);
+      }
     } catch (error) {
       console.error("질문 가져오기 오류:", error);
       setError("면접 질문을 가져오는 중 오류가 발생했습니다.");
@@ -35,11 +45,18 @@ const InterviewPage = () => {
 
   const handleQuestionComplete = () => {
     setIsQuestionPlaying(false);
+    setResponseMode(null); // 응답 모드 초기화
     setIsResponding(true);
+  };
+
+  const handleResponseModeSelect = (mode) => {
+    setResponseMode(mode);
   };
 
   const handleResponseComplete = (response) => {
     setIsResponding(false);
+    setResponseMode(null);
+
     // 다음 질문으로 이동하거나 면접 완료
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -95,13 +112,44 @@ const InterviewPage = () => {
         />
       </div>
 
-      {isResponding && (
+      {isResponding && !responseMode && (
+        <div className="response-mode-selection">
+          <h3>응답 방식을 선택하세요</h3>
+          <div className="button-group">
+            <button
+              className="btn-mode-selection text-mode"
+              onClick={() => handleResponseModeSelect("text")}
+            >
+              <img
+                src={textIcon}
+                alt="텍스트로 응답하기"
+                className="mode-icon"
+              />
+              <span className="mode-label">텍스트로 응답하기</span>
+            </button>
+            <button
+              className="btn-mode-selection speech-mode"
+              onClick={() => handleResponseModeSelect("speech")}
+            >
+              <img
+                src={micIcon}
+                alt="음성으로 응답하기"
+                className="mode-icon"
+              />
+              <span className="mode-label">음성으로 응답하기</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {isResponding && responseMode && (
         <div className="recorder-section">
           <ResponseRecorder
             userId={userId}
             questionId={`q${currentQuestionIndex + 1}`}
             questionText={questions[currentQuestionIndex]}
             onRecordingComplete={handleResponseComplete}
+            mode={responseMode}
           />
         </div>
       )}
