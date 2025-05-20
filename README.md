@@ -120,20 +120,22 @@ This project analyzes users' resumes and researches the target company's values 
 interview-assistant/
 ├── frontend/              # React frontend application
 │   ├── src/
-│   │   ├── components/    # UI components
-│   │   ├── pages/         # Page components
-│   │   ├── services/      # API service functions
-│   │   └── styles/        # CSS styles
+│   │   ├── components/   
+│   │   ├── pages/      
+│   │   ├── services/     
+│   │   ├── hooks/
+│   │   └── context/       
 │   ├── public/
 │   └── package.json
 ├── backend/               # FastAPI backend application
 │   ├── app/
-│   │   ├── api/           # API endpoints
-│   │   ├── core/          # Core configurations
-│   │   ├── models/        # Data models
-│   │   ├── repositories/  # Database operations
-│   │   └── services/      # Business logic
-│   ├── main.py            # Application entry point
+│   │   ├── agents/ 
+│   │   ├── api/      
+│   │   ├── core/         
+│   │   ├── models/        
+│   │   ├── db/          
+│   │   └── services/      
+│   ├── main.py         
 │   └── requirements.txt
 ├── .env                   # Environment variables
 ├── .gitignore             # Git ignore file
