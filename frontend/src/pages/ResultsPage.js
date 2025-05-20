@@ -101,7 +101,12 @@ const ResultsPage = () => {
       <h1>면접 평가 결과</h1>
       <div className="results-summary">
         <ReactMarkdown
-          className="evaluation-content"
+          components={{
+            // 여기서 컴포넌트별로 클래스를 지정합니다
+            div: ({ node, ...props }) => (
+              <div className="evaluation-content" {...props} />
+            ),
+          }}
           remarkPlugins={[remarkGfm]}
         >
           {typeof evaluation === "string"
